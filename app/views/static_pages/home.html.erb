@@ -1,0 +1,121 @@
+<!-- Home Section -->
+<section id="home" class="home-section">
+  <div class="container"><div class="row">
+    <div class="center hero-unit">
+      <h1>Рейтинг разработчиков на GitHub</h1>
+      <h2>
+        Сайт предоставляет возможность ввести имя пользователя GitHub,
+        собрать по нему различную статистику и построить рейтинги
+        на основе собранных данных.
+      </h2>
+      <%= link_to "Добавить пользователя!", '#adduser', class: "btn btn-large btn-primary" %>
+    </div>
+  </div></div>
+</section>
+
+<!-- AddUser Section -->
+<section id="adduser" class="adduser-section">
+  <div class="container"><div class="row">
+    <h1>Добавление пользователя</h1>
+    <div class="span6 offset3">
+      <%= form_for @user, url: { :action => :add } do |f| %>
+        Введите имя пользователя GitHub:</br></br>
+        <%= f.text_field :name %>
+
+        <%= f.submit "Добавить", class: "btn btn-large btn-primary" %>
+      <% end %>
+    </div>
+  </div></div>
+</section>
+
+<!-- Rating Section -->
+<section id="rating" class="rating-section">
+  <div class="container">
+    <h1>Рейтинги</h1>
+    Две таблицы с первыми <%= Settings.n %> пользователями по рейтингам:
+    <br><br>
+    <div class="row">
+    <div class="span6">
+      <h5>кол-во followers пользователя + суммарное кол-во watchers.</h5></br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">№</th>
+            <th class="text-center">Имя пользователя</th>
+            <th class="text-center">Рейтинг</th>
+          </tr>
+        </thead>
+          <tbody>
+          <% @users_rating1.each_with_index do |user, i| %>
+            <tr>
+              <td class="text-center"><%= (i + 1) %></td>
+              <td class="text-center"><%= user.name %></td>
+              <td class="text-center"><%= user.rating1 %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="span6">
+      <h5>кол-во forks всех собственных репозитариев пользователя.</h5></br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">№</th>
+            <th class="text-center">Имя пользователя</th>
+            <th class="text-center">Рейтинг</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users_rating2.each_with_index do |user, i| %>
+            <tr>
+              <td class="text-center"><%= (i + 1) %></td>
+              <td class="text-center"><%= user.name %></td>
+              <td class="text-center"><%= user.rating2 %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+    <%= link_to "К статусам!", '#status', class: "btn btn-large btn-primary" %>
+    <%= link_to "Refresh", 'javascript:history.go(0);', class: "btn btn-large btn-primary" %>
+  </div>
+</section>
+
+<!-- Status Section -->
+<section id="status" class="status-section">
+  <div class="container">
+    <h1>Статусы запросов</h1>
+    Список пользователей, по которым в данный момент собираются метрики:</br>
+    </br>
+    <div class="row">
+    <div class="span10 offset1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">№</th>
+            <th class="text-center">Время запроса</th>
+            <th class="text-center">Имя пользователя</th>
+            <th class="text-center">Статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users_status.each_with_index do |user, i| %>
+            <tr>
+              <td class="text-center"><%= (i + 1) %></td>
+              <td class="text-center"><%= user.created_at.in_time_zone%></td>
+              <td class="text-center"><%= user.name %></td>
+              <td class="text-center"><%= user.status %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    </div>
+    <%= link_to "К рейтингам!", '#rating', class: "btn btn-large btn-primary" %>
+    <%= link_to "Refresh", 'javascript:history.go(0);', class: "btn btn-large btn-primary" %>
+  </div>
+</section>
