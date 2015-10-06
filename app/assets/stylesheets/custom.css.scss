@@ -103,31 +103,34 @@ input {
 
 
 .home-section {
-    min-height: 90%;
-    padding-top: 10%;
+    min-height: 100%;
+    padding: 10% 0;
     text-align: center;
     background: #fff;
 }
 
 .adduser-section {
-    min-height: 90%;
-    padding-top: 10%;
+    min-height: 100%;
+    padding: 10% 0;
     text-align: center;
     background: #eee;
+    @include box_sizing;
 }
 
 .rating-section {
-    min-height: 90%;
-    padding-top: 10%;
+    min-height: 100%;
+    padding: 10% 0;
     text-align: center;
     background: #fff;
+    @include box_sizing;
 }
 
 .status-section {
-    min-height: 90%;
-    padding-top: 10%;
+    min-height: 100%;
+    padding: 10% 0;
     text-align: center;
     background: #eee;
+    @include box_sizing;
 }
 
 .table td {

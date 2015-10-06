@@ -35,11 +35,12 @@ class User < ActiveRecord::Base
     self.completed!
 
     self.save
-
-  rescue
+  rescue => exception
     self.wrong!
     self.save
+
+    logger.error "exception"
   end
 
-  handle_asynchronously :execute
+  #handle_asynchronously :execute
 end
