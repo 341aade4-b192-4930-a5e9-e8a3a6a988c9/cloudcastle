@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
 
     @user.save
     
-    @user.execute
+    @user.delay.execute
 
     redirect_to action: 'home', :anchor => 'status'
   end
