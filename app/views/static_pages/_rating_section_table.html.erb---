@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <% ['№', 'Имя пользователя', 'Рейтинг'].each do |column_name| -%>
+        <th class="text-center"><%= column_name %></th>
+      <% end -%>
+    </tr>
+  </thead>
+  <tbody>
+    <% users_rating.each_with_index do |user, i| %>
+      <tr>
+        <% [i + 1, user.name, user.rating1].each do |column_name| -%>
+          <td class="text-center"><%= column_name %></td>
+        <% end -%>
+      </tr>
+    <% end %>
+  </tbody>
+
+<%= display_standard_table(
+          [
+            { :name => 'id', :display_name => '№' },
+            { :name => 'name', :display_name => 'Имя пользователя' },
+            { :name => 'rating1', :display_name => 'Рейтинг'}
+          ], users_rating) %>
+
+</table>

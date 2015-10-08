@@ -1,8 +1,9 @@
 require 'rest_client'
 
-require "#{Rails.root.to_s}/lib/NewsletterJob.rb"
+#require "#{Rails.root.to_s}/lib/NewsletterJob.rb"
 
 class StaticPagesController < ApplicationController
+  helper StandartTableHelper
   def home
     @user = User.new
 

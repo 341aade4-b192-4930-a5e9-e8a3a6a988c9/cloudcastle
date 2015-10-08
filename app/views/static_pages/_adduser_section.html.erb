@@ -1,0 +1,14 @@
+<!-- AddUser Section -->
+<section id="adduser" class="adduser-section">
+  <div class="container"><div class="row">
+    <h1>Добавление пользователя</h1>
+    <div class="span6 offset3">
+      <%= form_for @user, url: { :action => :add } do |f| %>
+        Введите имя пользователя GitHub:</br></br>
+        <%= f.text_field :name %>
+
+        <%= f.submit "Добавить", class: "btn btn-large btn-primary" %>
+      <% end %>
+    </div>
+  </div></div>
+</section>

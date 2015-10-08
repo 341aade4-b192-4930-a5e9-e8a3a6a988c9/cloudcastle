@@ -1,0 +1,18 @@
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">№</th>
+            <th class="text-center">Имя пользователя</th>
+            <th class="text-center">Рейтинг</th>
+          </tr>
+        </thead>
+          <tbody>
+          <% users_rating.each_with_index do |user, i| %>
+            <tr>
+              <td class="text-center"><%= (i + 1) %></td>
+              <td class="text-center"><%= user.name %></td>
+              <td class="text-center"><%= user.rating1 %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
