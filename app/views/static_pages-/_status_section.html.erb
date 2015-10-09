@@ -5,11 +5,11 @@
     Список пользователей, по которым в данный момент собираются метрики:</br></br>
     <div class="row">
       <div class="span10 offset1">
-        <table class="table status-table">
+        <table class="table">
           <thead>
             <tr>
               <% ['№', 'Время запроса', 'Имя пользователя', 'Статус'].each do |column_name| -%>
-                <th><%= column_name %></th>
+                <th class="text-center"><%= column_name %></th>
               <% end -%>
             </tr>
           </thead>
@@ -17,7 +17,7 @@
             <% @users_status.each_with_index do |user, i| %>
               <tr>
                 <% [i + 1, user.created_at.in_time_zone, user.name, user.status].each do |column_name| -%>
-                  <td><%= column_name %></td>
+                  <td class="text-center"><%= column_name %></td>
                 <% end -%>
               </tr>
             <% end %>

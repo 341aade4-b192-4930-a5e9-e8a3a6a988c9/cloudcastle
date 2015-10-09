@@ -1,8 +1,8 @@
-<table class="table">
+<table class="table rating-table">
   <thead>
     <tr>
       <% ['№', 'Имя пользователя', 'Рейтинг'].each do |column_name| -%>
-        <th class="text-center"><%= column_name %></th>
+        <th><%= column_name %></th>
       <% end -%>
     </tr>
   </thead>
@@ -10,7 +10,7 @@
     <% users_rating.each_with_index do |user, i| %>
       <tr>
         <% [i + 1, user.name, user.rating1].each do |column_name| -%>
-          <td class="text-center"><%= column_name %></td>
+          <td><%= column_name %></td>
         <% end -%>
       </tr>
     <% end %>

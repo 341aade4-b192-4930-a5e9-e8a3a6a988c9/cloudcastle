@@ -38,7 +38,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1.1)
+    coffee-script-source (1.8.0)
     config (1.0.0)
       activesupport (>= 3.0)
       deep_merge (~> 1.0.0)
@@ -168,6 +168,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (= 2.3.2.0)
   coffee-rails (~> 4.0.0)
+  coffee-script-source (= 1.8.0)
   config
   daemons
   delayed_job_active_record

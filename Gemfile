@@ -62,3 +62,5 @@ group :development, :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'webmock'
 end
+
+gem 'coffee-script-source', '1.8.0'

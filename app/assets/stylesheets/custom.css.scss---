@@ -1,6 +1,5 @@
 @import "bootstrap";
 
-
 /* colors */
 
 $logo_color: #fff;
@@ -8,7 +7,6 @@ $logo_color: #fff;
 $dark_section_color: #eee;
 
 $light_section_color: #fff;
-
 
 /* mixins */
 
@@ -32,37 +30,16 @@ $light_section_color: #fff;
   @include box_sizing;
 }
 
-@mixin td_th_center_text_align{
-  td, th {
-   text-align: center;   
-  }
-}
-
-
-/* universal */
-
-html {
-  @include full_width_and_height;
-
-  overflow-y: scroll;
-}
+/* styles */
 
 body {
   @include full_width_and_height;
-
-  h1 {
-    font-size: 3em;
-    text-align: center;
-  }
-
-  p {
-    font-size: 1.1em;
-    line-height: 1.7em;
-  }
 }
 
-
-/* styles */
+html {
+  @include full_width_and_height;
+  overflow-y: scroll;
+}
 
 .logo {
   float: left;
@@ -81,45 +58,43 @@ body {
   }
 }
 
+.home-section, .rating-section {
+  @include section_with_background($light_section_color);
+}
+
+.adduser-section, .status-section {
+  @include section_with_background($dark_section_color);
+}
+
 .adduser-form
 {
-  input[type="text"], textarea, select {
+  input, textarea, select, .uneditable-input {
     width: 100%;
   }
 }
 
-.rating-table
+.rating-table, .status-table
 {
-  @include td_th_center_text_align;
-}
-
-status-table
-{
-  @include td_th_center_text_align;
-}
-
-
-/* sections */
-
-.home-section {
-  @include section_with_background($light_section_color);
-
-  h2 {
-    font-size: 1.2em;
-    text-align: center;
-    font-weight: normal;
-    color: #999;
+  td, th {
+   text-align: center;   
   }
 }
 
-.adduser-section {
-  @include section_with_background($dark_section_color);
+/* typography */
+
+h1 {
+  font-size: 3em;
+  text-align: center;
 }
 
-.rating-section {
-  @include section_with_background($light_section_color);
+h2 {
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: normal;
+  color: #999;
 }
 
-.status-section {
-  @include section_with_background($dark_section_color);
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
 }
