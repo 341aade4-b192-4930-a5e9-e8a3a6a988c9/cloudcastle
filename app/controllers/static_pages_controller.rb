@@ -4,6 +4,7 @@ require 'rest_client'
 
 class StaticPagesController < ApplicationController
   helper StandartTableHelper
+
   def home
     @user = User.new
 
@@ -19,11 +20,28 @@ class StaticPagesController < ApplicationController
 
     @user = User.new(user_params)
 
-    @user.wait!
+    if !@user.valid? 
+      flash[:adduser_form_error] = 'Имя пользователя может содержать латинские буквы, числа или дефисы, и быть не более 39 символов.'
 
+      redirect_to action: 'home', :anchor => 'adduser'
+
+      return
+    end
+
+    if User.exists?(:name => @user.name) #downcase
+      #flash[:adduser_form_error] = 'Пользователь с таким именем уже присутствует в таблице рейтингов.'
+      flash[:adduser_form_error] = 'Данные по пользователю с таким именем уже были собраны ранее.'
+
+      redirect_to action: 'home', :anchor => 'adduser'
+
+      return
+    end
+
+    @user.wait!
     @user.save
-    
-    @user.delay.execute
+
+    #@user.delay.execute
+    @user.execute
 
     redirect_to action: 'home', :anchor => 'status'
   end

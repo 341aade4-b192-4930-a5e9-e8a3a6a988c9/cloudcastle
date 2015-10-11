@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  VALID_REGEX = /\A[a-z\d\-]+\z/i
+  validates :name, presence: true, format: { with: VALID_REGEX }, length: { maximum: 39 }
+
+  before_save { self.name = name.downcase }
+
   enum status: [ :wait, :in_progress, :completed, :wrong ]
   def execute
 

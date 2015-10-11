@@ -57,10 +57,12 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
-group :development, :test do
+group :test do
   gem 'rspec-rails', '2.13.1'
   gem 'factory_girl_rails', '4.2.1'
   gem 'webmock'
 end
+
+
 
 gem 'coffee-script-source', '1.8.0'
