@@ -1,9 +1,6 @@
 require 'rest_client'
 
-#require "#{Rails.root.to_s}/lib/NewsletterJob.rb"
-
 class StaticPagesController < ApplicationController
-  helper StandartTableHelper
 
   def home
     @user = User.new
@@ -15,9 +12,13 @@ class StaticPagesController < ApplicationController
     @users_status = User.order(created_at: :desc).limit(Settings.n).all
   end
 
-  def add
-    #User.delete_all
+  def clear
+    User.delete_all
 
+    redirect_to action: 'home', :anchor => 'status'
+  end
+
+  def add
     @user = User.new(user_params)
 
     if !@user.valid? 
@@ -28,9 +29,8 @@ class StaticPagesController < ApplicationController
       return
     end
 
-    if User.exists?(:name => @user.name) #downcase
-      #flash[:adduser_form_error] = 'Пользователь с таким именем уже присутствует в таблице рейтингов.'
-      flash[:adduser_form_error] = 'Данные по пользователю с таким именем уже были собраны ранее.'
+    if User.exists?(:name => @user.name.downcase)
+      flash[:adduser_form_error] = 'Данные по пользователю с таким именем уже собирались.'
 
       redirect_to action: 'home', :anchor => 'adduser'
 
