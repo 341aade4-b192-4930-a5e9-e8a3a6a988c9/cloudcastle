@@ -25,8 +25,6 @@ module Demo
 
     config.time_zone = 'Europe/Samara'
 
-    require "#{Rails.root.to_s}/lib/NewsletterJob.rb"
-
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
