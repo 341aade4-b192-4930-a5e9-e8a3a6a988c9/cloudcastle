@@ -1,5 +1,5 @@
-#source 'http://rubygems.org'
-source 'http://production.s3.rubygems.org'
+source 'http://rubygems.org'
+#source 'http://production.s3.rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
