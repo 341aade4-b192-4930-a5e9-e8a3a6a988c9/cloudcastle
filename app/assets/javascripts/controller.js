@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ngResource']);
 
-app.factory("User", [function($resource) {
+app.factory("User", ['$resource', function($resource) {
   return $resource(
     "/users/:id",
     {
@@ -15,7 +15,7 @@ app.factory("User", [function($resource) {
   );
 }])
 
-app.controller("AddUserController", [function($rootScope, $scope, User) {
+app.controller("AddUserController", ['$rootScope','$scope', 'User', function($rootScope, $scope, User) {
 
   $scope.newUser = new User();
 
@@ -40,7 +40,7 @@ app.controller("AddUserController", [function($rootScope, $scope, User) {
     };
 }]);
 
-app.controller("RatingsController", [function($scope, User) {
+app.controller("RatingsController", ['$scope', 'User', function($scope, User) {
   $scope.rating1 = User.by_rating1()
   $scope.rating2 = User.by_rating2()
 
@@ -68,7 +68,7 @@ app.controller("RatingsController", [function($scope, User) {
   };
 }])
 
-app.controller("StatusesController", [function($scope, User) {
+app.controller("StatusesController", ['$scope', 'User', function($scope, User) {
   $scope.statuses = User.index()
 
   $scope.$on("refresh", function(){
