@@ -1,6 +1,5 @@
 @import "bootstrap";
 
-
 /* colors */
 
 $logo_color: #fff;
@@ -60,7 +59,6 @@ body {
 
   p {
     font-size: 1.1em;
-    line-height: 1.7em;
   }
 }
 
@@ -118,8 +116,8 @@ body {
     font-weight: normal;
     color: $description_text_color;
     line-height: 1;
-    letter-spacing: -1px;
     margin-bottom: 30px;
+    letter-spacing: -1px;
   }
 }
 

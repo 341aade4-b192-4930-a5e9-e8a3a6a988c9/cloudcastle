@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get ':action' => 'static_pages#:action'
-  post ':action' => 'static_pages#:action'
-  #root :controller => 'static_pages', :action => "home"
-  #root /add {:controller => 'static_pages', :action => "home"}
+  resources :users
 
-  #get 'static_pages/home'
-  #get 'static_pages/add'
+  get ':action' => 'static_pages#:action'
+
+  root :controller => 'static_pages', :action => "home"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,4 +1,5 @@
-source 'http://rubygems.org'
+#source 'http://rubygems.org'
+source 'http://production.s3.rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -62,7 +63,5 @@ group :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'webmock'
 end
-
-
 
 gem 'coffee-script-source', '1.8.0'

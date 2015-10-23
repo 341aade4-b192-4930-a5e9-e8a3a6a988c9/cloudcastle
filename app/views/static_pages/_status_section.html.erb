@@ -1,31 +1,31 @@
 <!-- Status Section -->
 <section id="status" class="status-section">
-  <div class="container">
+  <div class="container" ng-controller="StatusesController" ng-init="isLoading = false">
     <h1>Статусы запросов</h1>
     Список пользователей, по которым в данный момент собираются метрики:</br></br>
     <div class="row">
       <div class="span10 offset1">
-        <table class="table status-table">
-          <thead>
-            <tr>
-              <% ['№', 'Время запроса', 'Имя пользователя', 'Статус'].each do |column_name| -%>
-                <th><%= column_name %></th>
-              <% end -%>
-            </tr>
-          </thead>
-          <tbody>
-            <% @users_status.each_with_index do |user, i| %>
+        <div>
+          <table class="table status-table">
+            <thead>
               <tr>
-                <% [i + 1, user.created_at.in_time_zone, user.name, user.status].each do |column_name| -%>
-                  <td><%= column_name %></td>
-                <% end -%>
+                <% ['ID', 'Время запроса', 'Имя пользователя', 'Статус'].each do |column_name| %>
+                  <th><%= column_name %></th>
+                <% end %>
               </tr>
-            <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <tr ng-repeat="status in statuses">
+                <% ['{{ status.id }}', '{{ status.created_at }}', '{{ status.name }}', '{{ status.status }}'].each do |value| %>
+                  <td><%= value %></td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     <%= link_to "К рейтингам!", '#rating', class: "btn btn-large btn-primary" %>
-    <%= link_to "Refresh", 'javascript:history.go(0);', class: "btn btn-large btn-primary" %>
+    <button ng-click="refresh()" class="btn btn-large btn-primary">{{isLoading ? 'Loading...' : 'Refresh'}}</button>
   </div>
 </section>

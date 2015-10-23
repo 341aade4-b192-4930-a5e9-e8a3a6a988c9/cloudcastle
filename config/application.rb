@@ -20,10 +20,13 @@ module Demo
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     Delayed::Worker.destroy_failed_jobs = false
+    
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     config.time_zone = 'Europe/Samara'
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end

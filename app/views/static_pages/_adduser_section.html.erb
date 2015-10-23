@@ -3,16 +3,15 @@
   <div class="container">
     <h1>Добавление пользователя</h1>
     <div class="row">
-      <div class="span6 offset3">
-        <%= form_for @user, :html => { class: 'adduser-form' }, url: { :action => :add } do |f| %>
-          <% if flash[:adduser_form_error] %>
-            <div class="alert alert-error"><%= flash[:adduser_form_error] %></div>
-          <% end %>
+      <div class="span6 offset3" ng-controller="AddUserController" ng-init="isLoading = false">
+        <form name="form" ng-submit="save()" class="adduser-form">
+          <div ng-show="error != null" class="alert alert-error">{{error}}</div>
           Введите имя пользователя GitHub:</br></br>
-          <%= f.text_field :name %>
-          <%= f.submit "Добавить", class: "btn btn-large btn-primary" %>
-        <% end %>
+          <input type="text" id="name" ng-model="user.name">
+          <button type="submit" class="btn btn-large btn-primary">{{isLoading ? 'Loading...' : 'Добавить'}}</button>
+        </form>
       </div>
     </div>
   </div>
 </section>
+

@@ -1,22 +1,22 @@
 <!-- Rating Section -->
 <section id="rating" class="rating-section">
-  <div class="container">
+  <div class="container" ng-controller="RatingsController" ng-init="isLoading1 = false; isLoading2 = false;">
     <h1>Рейтинги</h1>
     Две таблицы с первыми <%= Settings.n %> пользователями по рейтингам:
     <br><br>
     <div class="row">
     <div class="span6">
       <h5>кол-во followers пользователя + суммарное кол-во watchers.</h5></br>
-      <%= render 'rating_section_table', :users_rating => @users_rating1 %>
+      <%= render 'rating_section_table', :rating => "rating1" %>
     </div>
 
     <div class="span6">
       <h5>кол-во forks всех собственных репозитариев пользователя.</h5></br>
-      <%= render 'rating_section_table', :users_rating => @users_rating2 %>
+      <%= render 'rating_section_table', :rating => "rating2" %>
     </div>
     </div>
 
     <%= link_to "К статусам!", '#status', class: "btn btn-large btn-primary" %>
-    <%= link_to "Refresh", 'javascript:history.go(0);', class: "btn btn-large btn-primary" %>
+    <button ng-click="refresh()" class="btn btn-large btn-primary">{{(isLoading1 || isLoading2) ? 'Loading...' : 'Refresh'}}</button>
   </div>
 </section>
