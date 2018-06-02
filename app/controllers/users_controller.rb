@@ -2,58 +2,42 @@ class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token  
 
   def create
-    @user = User.new(user_params)
+    user = User.new(user_params)
 
-    if !@user.valid? 
-      adduser_form_error = 'Имя пользователя может содержать латинские буквы, числа или дефисы, и быть не более 39 символов.'
-      render json: { :error_message => adduser_form_error }, status: :unprocessable_entity 
-
-      return
-    end
-
-    if User.exists?(:name => @user.name.downcase)
-      adduser_form_error = 'Данные по пользователю с таким именем уже собирались.'
-      render json: { :error_message => adduser_form_error }, status: :unprocessable_entity 
+    if !user.valid?
+      error_message = 'The name should contain only latin letters, numbers or hyphens. It should be less than 40 characters.'
+      render json: { error_message: error_message }, status: :unprocessable_entity
 
       return
     end
 
-    @user.wait!
-    @user.save
+    if User.exists?(:name => user.name.downcase)
+      error_message = 'This user has already been processed.'
+      render json: { error_message: error_message }, status: :unprocessable_entity
 
-    @user.delay.execute
+      return
+    end
 
-    render json: @user, status: :created
-  end
+    user.update!(status: :wait)
 
-  def by_rating1
-    @users_rating1 = User.where(status: User.statuses[:completed]).order(rating1: :desc).limit(Settings.n).all
-    render :json => @users_rating1
-  end
+    user.save
 
-  def by_rating2
-    @users_rating2 = User.where(status: User.statuses[:completed]).order(rating2: :desc).limit(Settings.n).all
-    render :json => @users_rating2
+    UserInfoWorker.perform_async(user.id)
+
+    render json: user, status: :created
   end
 
   def index
-    if !params.has_key?(:orderby)
-      @users_status = User.order(created_at: :desc).limit(Settings.n).all
-      render :json => @users_status
-
-      return
+    if !params.has_key?(:order_by)
+      render json: User.by_created_at.limited
     end
 
-    if params[:orderby] == 'rating1'
-      by_rating1
-
-      return
+    if params[:order_by] == 'rating1'
+      render json: User.by_rating1.limited
     end
 
-    if params[:orderby] == 'rating2'
-      by_rating2
-
-      return
+    if params[:order_by] == 'rating2'
+      render json: User.by_rating2.limited
     end
   end
 
