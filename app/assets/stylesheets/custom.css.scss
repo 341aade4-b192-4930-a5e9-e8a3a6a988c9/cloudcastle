@@ -4,11 +4,11 @@
 
 $logo_color: #fff;
 
-$dark_section_color: #eee;
+$dark_section_color: #fff;
 
 $light_section_color: #fff;
 
-$description_text_color: #999;
+$description_text_color: #fff;
 
 
 /* mixins */
@@ -109,7 +109,7 @@ body {
     font-size: 1.2em;
     text-align: center;
     font-weight: normal;
-    color: $description_text_color;
+    color: #cccccc;
     line-height: 1;
     margin-bottom: 30px;
     letter-spacing: -1px;

@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
 
   scope :by_created_at, -> { order(created_at: :desc) }
 
-  scope :by_rating1, -> { where(status: :completed).order(rating1: :desc) }
-  scope :by_rating2, -> { where(status: :completed).order(rating2: :desc) }
+  scope :by_rating1, -> { where(status: "completed").order(rating1: :desc) }
+  scope :by_rating2, -> { where(status: "completed").order(rating2: :desc) }
 
   scope :limited, -> { limit(Settings.n) }
 end
