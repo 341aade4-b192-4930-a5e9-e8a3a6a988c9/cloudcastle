@@ -1,10 +1,10 @@
 <!-- Status Section -->
 <section id="status" class="status-section">
-  <div class="container" ng-controller="StatusesController" ng-init="isLoading = false">
-    <h1>Statuses</h1>
-    Список пользователей, по которым в данный момент собираются метрики:</br></br>
-    <div class="row">
-      <div class="span10 offset1">
+  <div class="container d-flex justify-content-center" ng-controller="StatusesController" ng-init="isLoading = false">
+    <div class="col-12">
+      <h1>Request Statuses</h1>
+      List of users for which metrics are collecting:</br></br>
+      <div class="cal-10">
         <div>
           <table class="table status-table">
             <thead>
@@ -24,8 +24,8 @@
           </table>
         </div>
       </div>
+      <%= link_to "Rating Tables", '#rating', class: "btn btn-large btn-primary" %>
+      <button ng-click="refresh()" class="btn btn-large btn-primary">{{isLoading ? 'Loading...' : 'Refresh'}}</button>
     </div>
-    <%= link_to "Go To Ranking Tables", '#rating', class: "btn btn-large btn-primary" %>
-    <button ng-click="refresh()" class="btn btn-large btn-primary">{{isLoading ? 'Loading...' : 'Refresh'}}</button>
   </div>
 </section>
