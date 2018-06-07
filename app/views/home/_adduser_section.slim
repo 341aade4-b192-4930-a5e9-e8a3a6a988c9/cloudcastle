@@ -4,9 +4,9 @@ section id="adduser" class="adduser-section"
       h1 Add GitHub Account
       div ng-controller="AddUserController" ng-init="isLoading = false"
         form name="form" ng-submit="save()" class="adduser-form form-group"
-          div ng-show="error != null" class="alert alert-error" {{error}}
-          GitHub Account:
-          br
-          br
-          input type="text" id="name" ng-model="user.name"
-          button type="submit" class="btn btn-large btn-primary" {{isLoading ? 'Loading...' : 'Add Account'}}
+          .form-group
+            div ng-show="error != null" class="alert alert-error" {{error}}
+            label for="name" GitHub Account:
+            input type="text" id="name" ng-model="user.name"
+          .form-group
+            button type="submit" class="btn btn-large btn-primary" {{isLoading ? 'Loading...' : 'Add Account'}}
