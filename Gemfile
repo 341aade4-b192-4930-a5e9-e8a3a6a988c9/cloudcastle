@@ -35,3 +35,5 @@ gem 'sidekiq'
 gem 'rails-assets-bootstrap', source: 'http://insecure.rails-assets.org'
 gem 'rails-assets-angular', source: 'https://rails-assets.org'
 gem 'rails-assets-angular-resource', source: 'https://rails-assets.org'
+
+gem 'open-iconic-rails'
