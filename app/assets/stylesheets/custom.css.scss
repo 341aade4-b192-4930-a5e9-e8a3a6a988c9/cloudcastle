@@ -1,16 +1,5 @@
 @import "bootstrap";
 
-/* colors */
-
-$logo_color: #fff;
-
-$dark_section_color: #fff;
-
-$light_section_color: #fff;
-
-$description_text_color: #fff;
-
-
 /* mixins */
 
 @mixin box_sizing {
@@ -19,12 +8,11 @@ $description_text_color: #fff;
   box-sizing: border-box;
 }
 
-@mixin section_with_background($background_color) {
+@mixin section_with_background() {
   overflow: auto;
   min-height: 100%;
   padding: 10% 0;
   text-align: center;
-  background: $background_color;
   @include box_sizing;
 }
 
@@ -54,23 +42,6 @@ body {
 
 
 /* styles */
-
-.logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: $logo_color;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-
-  &:hover {
-    color: $logo_color;
-    text-decoration: none;
-  }
-}
 
 .adduser-form
 {
@@ -102,7 +73,7 @@ body {
 /* sections */
 
 .home-section {
-  @include section_with_background($light_section_color);
+  @include section_with_background();
 
   h2 {
     font-family: "Helvetica Neue";
@@ -117,13 +88,13 @@ body {
 }
 
 .adduser-section {
-  @include section_with_background($dark_section_color);
+  @include section_with_background();
 }
 
 .rating-section {
-  @include section_with_background($light_section_color);
+  @include section_with_background();
 }
 
 .status-section {
-  @include section_with_background($dark_section_color);
+  @include section_with_background();
 }
