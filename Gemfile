@@ -37,3 +37,5 @@ gem 'rails-assets-angular', source: 'https://rails-assets.org'
 gem 'rails-assets-angular-resource', source: 'https://rails-assets.org'
 
 gem 'open-iconic-rails'
+
+gem 'slim'

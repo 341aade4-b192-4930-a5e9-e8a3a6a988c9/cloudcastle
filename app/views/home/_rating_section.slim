@@ -1,0 +1,23 @@
+section id="rating" class="rating-section"
+  .container.d-flex.justify-content-center ng-controller="RatingsController" ng-init="isLoading1 = false; isLoading2 = false;"
+    .col-12
+      h1 Rating Tables
+      Top #{Settings.n} developers:
+      br
+      br
+      .row
+        .col-6
+          h5 followers + all watchers.
+          br
+          = render 'rating_section_table', :rating => "rating1"
+
+        .col-6
+          h5 forks + repositories.
+          br
+          = render 'rating_section_table', :rating => "rating2"
+
+      = link_to "Request Statuses", '#status', class: "btn btn-large btn-outline-primary"
+      button ng-click="refresh()" class="btn btn-large btn-primary" ng-disabled="{{isLoading1 || isLoading2}}"
+        | Refresh
+        svg.icon viewBox="0 0 8 8" style="height: 14px; fill: white;"
+          use(xlink:href='/assets/open-iconic.min.svg#loop-circular')

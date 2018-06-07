@@ -1,0 +1,9 @@
+table.table.status-table
+  thead
+    tr
+      - ['№', 'User Name', 'Rank'].each do |column_name|
+        th = column_name
+  tbody
+    tr ng-repeat="user in rating1"
+      - ['{{ $index + 1 }}', '{{ user.name }}', "{{ user.#{rating} }}"].each do |value|
+        td = value
