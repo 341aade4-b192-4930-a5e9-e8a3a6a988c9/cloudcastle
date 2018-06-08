@@ -42438,7 +42438,7 @@ app.controller("AddUserController", function($scope, User) {
     };
 });
 
-app.controller("RatingsController", function($scope, User) {
+app.controller("RatingController", function($scope, User) {
   $scope.rating1 = User.by_rating1()
   $scope.rating2 = User.by_rating2()
 

@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller("RatingsController", ['$scope', 'User', function($scope, User) {
+app.controller("RatingController", ['$scope', 'User', function($scope, User) {
   $scope.rating1 = User.by_rating1()
   $scope.rating2 = User.by_rating2()
 

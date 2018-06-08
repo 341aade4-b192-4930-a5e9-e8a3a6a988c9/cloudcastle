@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller("StatusesController", ['$scope', 'User', function($scope, User) {
+app.controller("StatusController", ['$scope', 'User', function($scope, User) {
   $scope.statuses = User.index()
 
   $scope.$on("refresh", function(){

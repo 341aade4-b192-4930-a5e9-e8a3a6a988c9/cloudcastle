@@ -4,18 +4,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
 </head>
   <body>
     <nav class="navbar navbar-expand navbar-dark bg-primary fixed-top justify-content-between">
       <a class="navbar-brand" href="#">Sample App</a>
       <ul class="nav navbar-nav">
-        <li class="nav-item"><%= link_to "Home", '#home', class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Add GitHub Account", '#adduser', class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Rating Tables", '#rating', class: "nav-link" %></li>
-        <li class="nav-item"><%= link_to "Request Statuses", '#status', class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Home", 'home', class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Add GitHub Account", 'add_user', class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Rating Tables", 'rating', class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Request Statuses", 'status', class: "nav-link" %></li>
       </ul>
     </nav>
 

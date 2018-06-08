@@ -33,9 +33,12 @@ end
 gem 'sidekiq'
 
 gem 'rails-assets-bootstrap', source: 'http://insecure.rails-assets.org'
-gem 'rails-assets-angular', source: 'https://rails-assets.org'
+gem 'rails-assets-angularjs', source: 'https://rails-assets.org'
 gem 'rails-assets-angular-resource', source: 'https://rails-assets.org'
+gem 'rails-assets-angular-route', source: 'https://rails-assets.org'
 
 gem 'open-iconic-rails'
 
 gem 'slim'
+
+gem 'angular-rails-templates'
