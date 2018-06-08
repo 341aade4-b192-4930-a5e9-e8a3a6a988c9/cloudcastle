@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   skip_before_filter :verify_authenticity_token  
 
-  def home
+  def show
     @user = User.new
   end
 
