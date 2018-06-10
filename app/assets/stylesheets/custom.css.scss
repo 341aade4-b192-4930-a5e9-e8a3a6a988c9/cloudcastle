@@ -2,18 +2,11 @@
 
 /* mixins */
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 @mixin section_with_background() {
   overflow: auto;
   min-height: 100%;
   padding: 10% 0;
   text-align: center;
-  @include box_sizing;
 }
 
 /* universal */
@@ -47,7 +40,6 @@ body {
 {
   input[type="text"], textarea, select {
     width: 100%;
-    @include box_sizing;
   }
 
   input {

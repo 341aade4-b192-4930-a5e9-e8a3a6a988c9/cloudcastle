@@ -9,15 +9,31 @@ section.rating-section id="rating"
         .col-6
           h5 followers + all watchers.
           br
-          / = render 'rating_section_table', :rating => "rating1"
+          table.table.status-table
+            thead
+              tr
+                - ['№', 'User Name', 'Rank'].each do |column_name|
+                  th = column_name
+            tbody
+              tr ng-repeat="user in rating1"
+                - ['{{ $index + 1 }}', '{{ user.name }}', '{{ user.rating1 }}'].each do |value|
+                  td = value
 
         .col-6
           h5 forks + repositories.
           br
-          / = render 'rating_section_table', :rating => "rating2"
+          table.table.status-table
+            thead
+              tr
+                - ['№', 'User Name', 'Rank'].each do |column_name|
+                  th = column_name
+            tbody
+              tr ng-repeat="user in rating2"
+                - ['{{ $index + 1 }}', '{{ user.name }}', '{{ user.rating2 }}'].each do |value|
+                  td = value
 
-      = link_to "Request Statuses", '#status', class: "btn btn-large btn-outline-primary"
-      button ng-click="refresh()" class="btn btn-large btn-primary" ng-disabled="{{isLoading1 || isLoading2}}"
+      = link_to "Request Statuses", 'status', class: "btn btn-large btn-outline-primary mx-1"
+      button.btn.btn-large.btn-primary.mx-1 ng-click="refresh()" ng-disabled="{{isLoading1 || isLoading2}}"
         | Refresh
-        svg.icon viewBox="0 0 8 8" style="height: 14px; fill: white;"
+        svg.icon.ml-1 viewBox="0 0 8 8" style="height: 14px; fill: white;"
           use(xlink:href='/assets/open-iconic.min.svg#loop-circular')
