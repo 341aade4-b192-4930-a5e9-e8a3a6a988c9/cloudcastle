@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     end
 
     if params[:order_by] == 'rating1'
+      puts User.by_rating1.limited
       render json: User.by_rating1.limited
     end
 
