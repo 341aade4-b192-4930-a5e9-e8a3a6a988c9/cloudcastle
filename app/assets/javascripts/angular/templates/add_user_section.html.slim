@@ -3,7 +3,7 @@ section.adduser-section id="adduser"
     .col-10
       h1 Add GitHub Account
       div ng-controller="AddUserController" ng-init="isLoading = false"
-        form name="form" ng-submit="save()" class="adduser-form form-group"
+        form name="form" ng-submit="save()" class="form-group"
           .form-group
             div ng-show="error != null" class="alert alert-error" {{error}}
             label for="name" GitHub Account:

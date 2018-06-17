@@ -1,74 +1,13 @@
 @import "bootstrap";
 
-/* mixins */
-
-@mixin section_with_background() {
-  overflow: auto;
-  min-height: 100%;
+body {
   padding: 10% 0;
   text-align: center;
+  font-family: "Helvetica Neue";
 }
-
-/* universal */
-
-html {
-  width: 100%;
-  height: 100%;
-
-  overflow-y: scroll;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-
-  h1 {
-    font-size: 3em;
-    text-align: center;
-    font-family: "Helvetica Neue"
-  }
-
-  p {
-    font-size: 1.1em;
-  }
-}
-
-
-/* styles */
-
-.adduser-form
-{
-  input[type="text"], textarea, select {
-    width: 100%;
-  }
-
-  input {
-    height: auto !important;
-  }
-}
-
-.rating-table
-{
-  td, th {
-    text-align: center;
-  }
-}
-
-.status-table
-{
-  td, th {
-    text-align: center;
-  }
-}
-
-
-/* sections */
 
 .home-section {
-  @include section_with_background();
-
   h2 {
-    font-family: "Helvetica Neue";
     font-size: 1.2em;
     text-align: center;
     font-weight: normal;
@@ -79,14 +18,9 @@ body {
   }
 }
 
-.adduser-section {
-  @include section_with_background();
-}
-
-.rating-section {
-  @include section_with_background();
-}
-
-.status-section {
-  @include section_with_background();
+.adduser-section
+{
+  input[type="text"] {
+    width: 100%;
+  }
 }
