@@ -38,3 +38,5 @@ gem 'open-iconic-rails'
 gem 'slim'
 
 gem 'angular-rails-templates'
+
+gem 'webpacker'
