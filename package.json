@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "angular": "^1.7.2",
+    "angular-resource": "^1.7.2",
+    "angular-route": "^1.7.2",
+    "angular-template": "^2.4.0",
+    "html-loader": "^0.5.5",
+    "jquery": "^3.3.1",
+    "ngtemplate-loader": "^2.0.1",
+    "popper.js": "^1.14.3",
+    "slim-lang-loader": "0.0.7",
+    "slm-loader": "^1.0.0-beta"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}
