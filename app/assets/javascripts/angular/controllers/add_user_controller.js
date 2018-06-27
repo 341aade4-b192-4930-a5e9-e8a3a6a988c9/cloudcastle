@@ -14,7 +14,6 @@ app.controller('AddUserController', ['$rootScope','$scope', 'User', function($ro
           $scope.error = null;
           $scope.isLoading = false;
           $rootScope.$broadcast("refresh");
-          window.scrollTo( 0, document.getElementById('status').offsetTop );
         },
         function(err){
           $scope.isLoading = false;

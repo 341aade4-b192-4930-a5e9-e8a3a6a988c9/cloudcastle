@@ -1,27 +1,27 @@
 var app = angular.module('app', ['ngResource', 'ngRoute']);
 
-var homeTemplateUrl = require('ngtemplate-loader!html-loader!slim-lang-loader!./angular/templates/home_section.html.slim');
-var addUserTemplateUrl = require('ngtemplate-loader!html-loader!slim-lang-loader!./angular/templates/add_user_section.html.slim');
-var ratingTemplateUrl = require('ngtemplate-loader!html-loader!slim-lang-loader!./angular/templates/rating_section.html.slim');
-var statusTemplateUrl = require('ngtemplate-loader!html-loader!slim-lang-loader!./angular/templates/status_section.html.slim');
+var homeUrl = require('./angular/templates/home_section.html.slim');
+var addUserUrl = require('./angular/templates/add_user_section.html.slim');
+var ratingUrl = require('./angular/templates/rating_section.html.slim');
+var statusUrl = require('./angular/templates/status_section.html.slim');
 
 
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/home', {
-      templateUrl: homeTemplateUrl,
+      templateUrl: homeUrl,
       controller: 'HomeController',
     })
     .when('/add_user', {
-      templateUrl: addUserTemplateUrl,
+      templateUrl: addUserUrl,
       controller: 'AddUserController',
     })
     .when('/rating', {
-      templateUrl: ratingTemplateUrl,
+      templateUrl: ratingUrl,
       controller: 'RatingController',
     })
     .when('/status', {
-      templateUrl: statusTemplateUrl,
+      templateUrl: statusUrl,
       controller: 'StatusController'
     });
 
