@@ -12,12 +12,14 @@ section.rating-section id="rating"
           table.table
             thead
               tr
-                - ['№', 'User Name', 'Rank'].each do |column_name|
-                  th = column_name
+                th №
+                th User Name
+                th Rank
             tbody
               tr ng-repeat="user in rating1"
-                - ['{{ $index + 1 }}', '{{ user.name }}', '{{ user.rating1 }}'].each do |value|
-                  td = value
+                td {{ $index + 1 }}
+                td {{ user.name }}
+                td {{ user.rating1 }}
 
         .col-6
           h5 forks + repositories.
@@ -25,12 +27,14 @@ section.rating-section id="rating"
           table.table
             thead
               tr
-                - ['№', 'User Name', 'Rank'].each do |column_name|
-                  th = column_name
+                th №
+                th User Name
+                th Rank
             tbody
               tr ng-repeat="user in rating2"
-                - ['{{ $index + 1 }}', '{{ user.name }}', '{{ user.rating2 }}'].each do |value|
-                  td = value
+                td {{ $index + 1 }}
+                td {{ user.name }}
+                td {{ user.rating2 }}
 
       a.btn.btn-large.btn-outline-primary.mx-1 href='status'
         | Request Statuses
