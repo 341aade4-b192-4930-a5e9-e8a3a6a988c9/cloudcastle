@@ -1,10 +1,17 @@
 {
+  "scripts": {
+    "compile": "webpack -p",
+    "lint": "./node_modules/.bin/eslint .eslintrc.js --ext .js assets/javascripts/**",
+    "lint-fix": "./node_modules/.bin/eslint .eslintrc.js --ext .js --fix assets/javascripts/**"
+  },
   "dependencies": {
     "@rails/webpacker": "3.5",
     "angular": "^1.7.2",
     "angular-resource": "^1.7.2",
     "angular-route": "^1.7.2",
     "angular-template": "^2.4.0",
+    "babel-eslint": "^8.2.5",
+    "eslint-config-airbnb-base": "^13.0.0",
     "html-loader": "^0.5.5",
     "jquery": "^3.3.1",
     "ngtemplate-loader": "^2.0.1",
