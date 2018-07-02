@@ -1,16 +1,16 @@
-var app = angular.module('app')
+const app = angular.module('app')
 
-app.controller("StatusController", ['$scope', 'User', function($scope, User) {
+app.controller("StatusController", ['$scope', 'User', ($scope, User) => {
   $scope.statuses = User.index()
 
-  $scope.$on("refresh", function(){
+  $scope.$on("refresh", () => {
     $scope.refresh()
   })
 
-  $scope.refresh = function() {
+  $scope.refresh = () => {
     $scope.isLoading = true
     User.index(
-      function(data) {
+      (data) => {
         $scope.isLoading = false
         $scope.statuses = data
       }

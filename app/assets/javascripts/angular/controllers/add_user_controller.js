@@ -1,6 +1,6 @@
-var app = angular.module('app')
+const app = angular.module('app')
 
-app.controller('AddUserController', ['$rootScope','$scope', 'User', function($rootScope, $scope, User) {
+app.controller('AddUserController', ['$rootScope','$scope', 'User', ($rootScope, $scope, User) => {
 
   $scope.newUser = new User()
 
@@ -10,12 +10,12 @@ app.controller('AddUserController', ['$rootScope','$scope', 'User', function($ro
 
       User.save(
         { user: $scope.user },
-        function(data) {
+        () => {
           $scope.error = null
           $scope.isLoading = false
           $rootScope.$broadcast("refresh")
         },
-        function(err){
+        (err) => {
           $scope.isLoading = false
           $scope.error = err.data.error_message
         }

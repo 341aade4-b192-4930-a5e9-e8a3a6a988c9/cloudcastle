@@ -1,4 +1,4 @@
 var app = angular.module('app')
 
-app.controller("HomeController", ['$scope', 'User', function($scope) {
+app.controller("HomeController", ['$scope', 'User', () => {
 }])
