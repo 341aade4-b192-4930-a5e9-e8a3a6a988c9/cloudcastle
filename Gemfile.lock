@@ -252,6 +252,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma
   rails (~> 5.2.0)
+  rake
   rest-client
   rspec-rails (= 2.13.1)
   sass-rails
