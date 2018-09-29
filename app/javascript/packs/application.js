@@ -8,18 +8,3 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import 'bootstrap';
-
-import 'angular';
-import 'angular-route'
-import 'angular-resource';
-import 'angular-template';
-
-import 'javascripts/app.js'
-
-import 'javascripts/angular/controllers/add_user_controller.js'
-import 'javascripts/angular/controllers/home_controller.js'
-import 'javascripts/angular/controllers/rating_controller.js'
-import 'javascripts/angular/controllers/status_controller.js'
-
-import 'javascripts/angular/factories/user.js'
-
